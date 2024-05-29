@@ -1,0 +1,32 @@
+version: '3.7'
+
+services:
+  orthanc:
+    image: jodogne/orthanc-plugins
+    container_name: orthanc
+    ports:
+      - "8042:8042"   # Orthanc web interface
+      - "4242:4242"   # DICOM protocol
+    volumes:
+      - orthanc_data:/var/lib/orthanc/db
+      - ./orthanc.json:/etc/orthanc/orthanc.json:ro
+    networks:
+      - ohif_network
+
+  ohif:
+    image: ohif-viewer-image
+    container_name: ohif
+    ports:
+      - "3000:80"
+    environment:
+      - "PUBLIC_URL=/"
+      - "PACS_URL=http://localhost:8042/dicom-web"
+    networks:
+      - ohif_network
+
+volumes:
+  orthanc_data:
+
+networks:
+  ohif_network:
+    driver: bridge

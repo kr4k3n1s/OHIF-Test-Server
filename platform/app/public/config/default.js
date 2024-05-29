@@ -50,6 +50,7 @@ window.config = {
         supportsWildcard: true,
         staticWado: true,
         singlepart: 'bulkdata,video',
+        dicomUploadEnabled: true,
         // whether the data source should use retrieveBulkData to grab metadata,
         // and in case of relative path, what would it be relative to, options
         // are in the series level or study level (some servers like series some study)
@@ -78,6 +79,7 @@ window.config = {
         supportsWildcard: true,
         staticWado: true,
         singlepart: 'bulkdata,video',
+	dicomUploadEnabled: true,
         // whether the data source should use retrieveBulkData to grab metadata,
         // and in case of relative path, what would it be relative to, options
         // are in the series level or study level (some servers like series some study)
@@ -94,12 +96,14 @@ window.config = {
       configuration: {
         friendlyName: 'dicomweb delegating proxy',
         name: 'dicomwebproxy',
+	dicomUploadEnabled: true,
       },
     },
     {
       namespace: '@ohif/extension-default.dataSourcesModule.dicomjson',
       sourceName: 'dicomjson',
       configuration: {
+	dicomUploadEnabled: true,
         friendlyName: 'dicom json',
         name: 'json',
       },
@@ -108,6 +112,7 @@ window.config = {
       namespace: '@ohif/extension-default.dataSourcesModule.dicomlocal',
       sourceName: 'dicomlocal',
       configuration: {
+	dicomUploadEnabled: true,
         friendlyName: 'dicom local',
       },
     },
